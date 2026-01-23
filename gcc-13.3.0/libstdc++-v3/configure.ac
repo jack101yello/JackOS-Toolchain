@@ -102,7 +102,8 @@ GLIBCXX_CONFIGURE
 if test "x${with_newlib}" != "xyes" &&
     test "x${with_avrlibc}" != "xyes" &&
     test "x$with_headers" != "xno"; then
-  AC_LIBTOOL_DLOPEN
+  # AC_LIBTOOL_DLOPEN # This line removed as per this blog post: https://gcc.gnu.org/legacy-ml/gcc/2008-03/msg00611.html
+  :
 fi
 AM_PROG_LIBTOOL
 ACX_LT_HOST_FLAGS
