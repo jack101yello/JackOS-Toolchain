@@ -2,6 +2,7 @@
 #define __stdlib_H
 
 #include "sys/types.h"
+#include <stdio.h>
 
 typedef struct {
     int quot;

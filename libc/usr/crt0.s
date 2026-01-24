@@ -9,6 +9,8 @@ _start:
     push $0
     push $0
     call main
+    push %eax
+    call exit
 
 1:
     hlt
