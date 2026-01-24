@@ -18,6 +18,9 @@ typedef void* __va_list;
 #define _IONBF 2
 #define NULL 0
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 int fflush(FILE* file);
 int fprintf(FILE* file, const char* msg, ...);
 int fclose(FILE* file);
@@ -57,8 +60,11 @@ FILE* tmpfile(void);
 int ungetc(int, FILE*);
 int vfprintf(FILE*, const char * __restrict, __va_list);
 int vprintf(const char* __restrict, __va_list);
-int vsprintf(const * __restrict, const char * __restrict, __va_list);
+int vsprintf(const char* __restrict, const char * __restrict, __va_list);
 int fputs(const char*, FILE*);
 int fileno(FILE*);
+#ifdef __cplusplus
+}
+#endif
 
 #endif
