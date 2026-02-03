@@ -21,6 +21,13 @@ typedef __SIZE_TYPE__ size_t;
 typedef int pid_t;
 typedef uint32_t fpos_t;
 typedef fpos_t off_t;
+typedef int dev_t;
+typedef int ino_t;
+typedef int nlink_t;
+typedef int uid_t;
+typedef int gid_t;
+typedef int blksize_t;
+typedef int blkcnt_t;
 
 typedef __INT_LEAST8_TYPE__ int_least8_t;
 typedef __INT_LEAST16_TYPE__ int_least16_t;

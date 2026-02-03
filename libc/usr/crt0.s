@@ -4,6 +4,13 @@
 .extern _fini
 .section .text
 _start:
+    # Set up user-mode data segments
+    mov $0x2B, %ax
+    mov %ax, %ds
+    mov %ax, %es
+    mov %ax, %fs
+    mov %ax, %gs
+
     xor %ebp, %ebp
     and $-16, %esp
 
