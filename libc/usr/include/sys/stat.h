@@ -4,6 +4,10 @@
 #include <sys/types.h>
 #include <time.h>
 
+#define S_ISUID 0x4000
+#define S_ISGID 0x2000
+#define S_IWUSR 0x0200 // Write by owner
+
 struct stat {
     dev_t st_dev;
     ino_t st_ino;
@@ -19,5 +23,7 @@ struct stat {
     blksize_t st_bltsize;
     blkcnt_t st_blocks;
 };
+
+int stat(const char*, struct stat* buf);
 
 #endif
