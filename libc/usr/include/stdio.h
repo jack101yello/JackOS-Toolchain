@@ -2,6 +2,7 @@
 #define __stdio_H
 
 #include "sys/types.h"
+#include "sys/syscall_codes.h"
 
 #define SEEK_SET 0
 #define SEEK_CUR 1

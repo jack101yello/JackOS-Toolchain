@@ -9,7 +9,11 @@ enum syscall_label {
     PRINT_ADDR = 0x4,
     QUIT = 0x5,
     PUT_PIXEL = 0x6,
-    DRAW_FRAME = 0x7
+    DRAW_FRAME = 0x7,
+    MALLOC = 0x08,
+    FREE = 0x09,
+    CALLOC = 0x0A,
+    REALLOC = 0x0B
 };
 
 #endif

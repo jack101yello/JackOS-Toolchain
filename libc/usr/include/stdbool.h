@@ -4,8 +4,8 @@
 
 #ifndef __cplusplus
 enum bool {
-    False = 0x0,
-    True = 0x1
+    false = 0x0,
+    true = 0x1
 };
 #endif
 

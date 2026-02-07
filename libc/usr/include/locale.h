@@ -37,6 +37,6 @@ struct lconv {
 };
 
 char* setlocale(int, const char*);
-lconv* localeconv(void);
+struct lconv* localeconv(void);
 
 #endif

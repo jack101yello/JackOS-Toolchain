@@ -1,33 +1,5 @@
 #include <stdio.h>
 
-void abort(void) {
-
-}
-
-void* malloc(uint32_t size) {
-    return (void*)0;
-}
-
-void free(void* ptr) {
-    return;
-}
-
-int atexit(void (*)(void)) {
-    return -1;
-}
-
-char* getenv(const char* msg) {
-    return "\0";
-}
-
-void* calloc(uint32_t num, uint32_t size) {
-    return (void*)0;
-}
-
-int abs(int n) {
-    return (n >= 0) ? n : -n;
-}
-
 int puts(const char* message) {
     return printf(message);
 }
@@ -36,13 +8,49 @@ int printf(const char* message, ...) {
     asm volatile(
         "int $0x80"
         :
-        : "a"(0), "c"(message)
+        : "a"(PRINT), "c"(message)
     );
     return 0;
 }
 
+int fflush(FILE* file) {
+    return -1;
+}
+
+int fprintf(FILE* file, const char* msg, ...) {
+    return -1;
+}
+
 int getchar() {
     return -1;
+}
+
+int fclose(FILE* file) {
+    return -1;
+}
+
+FILE* fopen(const char* filename, const char* mode) {
+    return (FILE*)0;
+}
+
+uint32_t fread(void* ptr, uint32_t size, uint32_t nmemb, FILE* file) {
+    return -1;
+}
+
+int fseek(FILE* file, long offset, int whence) {
+    return -1;
+}
+
+long ftell(FILE* file) {
+    return -1;
+}
+
+uint32_t fwrite(const void* ptr, uint32_t size, uint32_t nmemb, FILE* file) {
+    return -1;
+}
+
+void setbuf(FILE* file, char* str) {
+    return;
 }
 
 FILE* stdin = NULL;

@@ -86,6 +86,14 @@ double pow(double base, double exponent) {
     return exp(exponent * log(base));
 }
 
+double intpow(double base, int exponent) {
+    if(exponent == 0) return 1;
+    if(exponent < 0) return 1/(intpow(base, -1*exponent));
+    double running_count = 1;
+    for(int i = 0; i < exponent; i++) running_count *= base;
+    return running_count;
+}
+
 double log10(double x) {
     return log(x) / log(10);
 }

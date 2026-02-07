@@ -28,6 +28,7 @@ double ldexp(double, int);
 double log(double);
 double log10(double);
 double modf(double, double*);
+double intpow(double, int);
 double pow(double, double);
 double sqrt(double);
 float fabsf(float);

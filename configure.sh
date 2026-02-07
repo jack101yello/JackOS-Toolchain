@@ -22,6 +22,7 @@ $PREFIX/bin/$TARGET-gcc -ffreestanding -fno-builtin -nostdlib -I$SYSROOT/usr/inc
 	&& cp libc.a $SYSROOT/usr/lib \
 	&& cp libc.a $SYSROOT/lib \
  \
+ 	&& mkdir -p $LOCAL/src/build-gcc \
 	&& cd $LOCAL/src/build-gcc \
 	&&	$LOCAL/gcc-*/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c,c++ --with-sysroot=$SYSROOT --disable-werror --with-newlib \
 	&& make all-gcc all-target-libgcc \

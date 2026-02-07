@@ -18,7 +18,9 @@ void* memset(void* dest, uint8_t val, uint32_t len) {
 }
 
 int strlen(const char* str) {
-    return sizeof(str) / sizeof(const char);
+    int index = 0;
+    while(str[index] != '\0' && index < 1024*1024) index++;
+    return index;
 }
 
 char* strcpy(char* dest, const char* src) {
