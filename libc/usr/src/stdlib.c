@@ -50,6 +50,8 @@ int ctoi(const char c) {
     return (int)((unsigned)c - '0');
 }
 
+extern double intpow(double, int);
+
 long atol(const char* str) {
     long running_number = 0;
     int length = strlen(str);

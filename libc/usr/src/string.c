@@ -26,3 +26,7 @@ int strlen(const char* str) {
 char* strcpy(char* dest, const char* src) {
     return (char*)0;
 }
+
+char* strerror(int errno) {
+	return (char*)0;
+}

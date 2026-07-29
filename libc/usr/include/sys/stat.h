@@ -7,6 +7,11 @@
 #define S_ISUID 0x4000
 #define S_ISGID 0x2000
 #define S_IWUSR 0x0200 // Write by owner
+#define S_IFMT 0170000
+#define S_IFREG 0100000
+#define S_IFIFO 0010000
+#define S_ISREG(m) (((m) & S_IFMT) == S_IFREG)
+#define S_ISFIFO(m) (((m) & S_IFMT) == S_IFIFO)
 
 struct stat {
     dev_t st_dev;
@@ -25,5 +30,6 @@ struct stat {
 };
 
 int stat(const char*, struct stat* buf);
+int fstat(int fd, struct stat* buf);
 
 #endif

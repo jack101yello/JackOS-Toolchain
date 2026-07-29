@@ -15,3 +15,7 @@ int execve(const char* path, char *const argv[], char *const envp[]) {
 int execvp(const char* path, char *const argv[]) {
     return -1;
 }
+
+void _exit(int status) {
+	return;
+}

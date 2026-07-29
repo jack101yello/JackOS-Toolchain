@@ -11,15 +11,18 @@ _start:
     mov %ax, %fs
     mov %ax, %gs
 
+	mov 4(%esp), %esi ;# argc
+	mov 8(%esp), %edi ;# argv
+
     xor %ebp, %ebp
     and $-16, %esp
 
     call _init # Call global constructors
 
-    push $0
-    push $0
-    push $0
+    push %edi
+    push %esi
     call main
+	add $8, %esp
 
     push %eax
     call _fini

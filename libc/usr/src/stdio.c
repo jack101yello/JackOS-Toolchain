@@ -8,7 +8,7 @@ int printf(const char* message, ...) {
     asm volatile(
         "int $0x80"
         :
-        : "a"(PRINT), "c"(message)
+        : "a"(0x0), "c"(message)
     );
     return 0;
 }
@@ -51,6 +51,18 @@ uint32_t fwrite(const void* ptr, uint32_t size, uint32_t nmemb, FILE* file) {
 
 void setbuf(FILE* file, char* str) {
     return;
+}
+
+char* fgets(char* buffer, int linenumber, FILE* file) {
+	return (char*)0;
+}
+
+int ferror(FILE* file) {
+	return 0;
+}
+
+int fileno(FILE* file) {
+	return 0;
 }
 
 FILE* stdin = NULL;

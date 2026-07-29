@@ -2,9 +2,16 @@
 #define __time_H
 
 #include "sys/types.h"
+#include "sys/select.h"
 
 typedef uint32_t clock_t;
 typedef uint32_t time_t;
+typedef uint32_t suseconds_t;
+
+struct timeval {
+	time_t tv_sec;
+	suseconds_t tv_usec;
+};
 
 struct tm {
     int tm_sec;

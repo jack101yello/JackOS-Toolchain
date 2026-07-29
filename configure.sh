@@ -7,6 +7,9 @@ export SYSROOT=$LOCAL/libc
 echo "Configuring JackOS cross compiler. Please note that this will take a while."
 read -p "Press [Enter] key to continue..."
 
+rm -rf "$SYSROOT/usr/build"
+mkdir -p "$SYSROOT/usr/build"
+
 # Compile crtn.o
 cd $SYSROOT/usr
 $PREFIX/bin/$TARGET-as crti.s -o $SYSROOT/usr/lib/crti.o || exit
@@ -34,3 +37,11 @@ $PREFIX/bin/$TARGET-gcc -ffreestanding -fno-builtin -nostdlib -I$SYSROOT/usr/inc
 cp $SYSROOT/usr/lib/crtn.o $PREFIX/lib/gcc/$TARGET/13.3.0/ || exit
 cp $SYSROOT/usr/lib/crti.o $PREFIX/lib/gcc/$TARGET/13.3.0/ || exit
 cp $SYSROOT/usr/lib/crt0.o $PREFIX/lib/gcc/$TARGET/13.3.0/ || exit
+cd $SYSROOT/usr || exit
+mkdir -p build-libm || exit
+cd build-libm || exit
+
+$PREFIX/bin/$TARGET-gcc -ffreestanding -fno-builtin -nostdlib -I$SYSROOT/usr/include -c $SYSROOT/usr/src/libm/*.c || exit
+$PREFIX/bin/$TARGET-ar rcs libm.a *.o || exit
+cp libm.a $SYSROOT/usr/lib || exit
+cp libm.a $SYSROOT/lib || exit

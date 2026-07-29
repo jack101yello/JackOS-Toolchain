@@ -53,3 +53,7 @@ int toupper(int n) {
     if(islower(n)) return n & 0x5F;
     return n;
 }
+
+int isblank(int n) {
+	return (unsigned)n == ' ';
+}

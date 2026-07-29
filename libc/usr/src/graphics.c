@@ -41,3 +41,11 @@ bool is_pressed(char key) {
     );
     return status;
 }
+
+void swap_framebuffer(int* new_framebuffer) {
+	asm volatile(
+		"int $0x80"
+		:
+		: "a"(SWAP_FRAMEBUFFER), "b"(new_framebuffer)
+	);
+}

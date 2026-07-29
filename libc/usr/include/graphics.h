@@ -22,6 +22,7 @@ void exit_graphics_mode();
 void put_pixel(int, int, enum COLOR_CODE color);
 void draw_frame();
 bool is_pressed(char);
+void swap_framebuffer(int* new_framebuffer);
 
 #ifdef __cplusplus
 }

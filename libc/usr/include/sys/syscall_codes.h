@@ -13,7 +13,8 @@ enum syscall_label {
     MALLOC = 0x08,
     FREE = 0x09,
     CALLOC = 0x0A,
-    REALLOC = 0x0B
+    REALLOC = 0x0B,
+	SWAP_FRAMEBUFFER = 0x0D,
 };
 
 #endif
